@@ -1,4 +1,4 @@
-# Demostrate Shopping Site with ReactJS Libarary
+# Simple REST API with Typescript
 ## Description
 Demostrating REST API written by Typescript code. The APIs are mainly on ExpressJS.
 ## Setup Commands
