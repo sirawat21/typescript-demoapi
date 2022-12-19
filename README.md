@@ -1,4 +1,5 @@
 # Simple REST API with Typescript
+[![Build](https://github.com/sirawat21/typescript-demoapi/actions/workflows/github-actions-build.yml/badge.svg?branch=master)](https://github.com/sirawat21/typescript-demoapi/actions/workflows/github-actions-build.yml)
 ## Description
 Demostrating REST API written by Typescript code. The APIs are mainly on ExpressJS.
 ## Setup Commands
