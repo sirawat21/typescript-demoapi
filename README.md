@@ -10,6 +10,8 @@ npm install --save @types/express
 Compile & Execute
 ```
 tsc [file]
+tsc --project tsconfig.json
+
 npx ts-node [file]
 ```
 Build
