@@ -4,8 +4,8 @@ Demostrating REST API written by Typescript code. The APIs are mainly on Express
 ## Setup Commands
 Dependency
 ```
-npm install -g typescript
-npm install --save @types/express
+npm install typescript ts-node@10.9.1 express
+npm install --save @types/express 
 ```
 Configuration
 Generating initial file
