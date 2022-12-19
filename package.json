@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "compile": "tsc ./src",
+    "compile": "tsc",
     "build": "npm run clean && npm run compile",
     "start": "nodemon"
   },
