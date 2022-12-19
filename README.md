@@ -4,10 +4,23 @@ Demostrating REST API written by Typescript code. The APIs are mainly on Express
 ## Setup Commands
 Dependency
 ```
-npm install typescript ts-node@10.9.1 express
-npm install --save @types/express 
+npm install typescript ts-node@10.9.1 express nodemon
+npm install --save @types/express
 ```
-Configuration
+Compile & Execute
+```
+tsc [file]
+npx ts-node [file]
+```
+Build
+```
+npm run build
+```
+Run project with monitoring
+```
+npm start
+```
+## Configuration
 Generating initial file
 ```
 tsc --init
@@ -33,14 +46,6 @@ Simple Templates
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
-```
-Compile
-```
-tsc [file]
-```
-Execute
-```
-npx ts-node [file]
 ```
 ## References
 - Typescript [sorce](https://www.typescriptlang.org/)
