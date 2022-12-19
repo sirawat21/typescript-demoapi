@@ -38,7 +38,10 @@ Compile
 ```
 tsc [file]
 ```
-
+Execute
+```
+npx ts-node [file]
+```
 ## References
 - Typescript [sorce](https://www.typescriptlang.org/)
 - Typescript CLI [sorce](https://www.typescriptlang.org/docs/handbook/compiler-options.html#compiler-options)
