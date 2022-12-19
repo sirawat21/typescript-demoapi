@@ -8,8 +8,37 @@ npm install -g typescript
 npm install --save @types/express
 ```
 Configuration
+Generating initial file
 ```
+tsc --init
 ```
+Simple Templates 
+```
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": ["ES2022"],
+    "strict": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
+```
+Compile
+```
+tsc [file]
+```
+
 ## References
 - Typescript [sorce](https://www.typescriptlang.org/)
 - Typescript on NPM [sorce](https://www.npmjs.com/package/typescript)
