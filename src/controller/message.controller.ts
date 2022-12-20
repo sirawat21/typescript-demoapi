@@ -46,7 +46,7 @@ router.post('/', (req: Request, res: Response) => {
 
 // [PUT] - Modify a message by id
 router.put('/:id', (req: Request, res: Response) => {
-   const id = parseInt(req.params.id);
+   const id = Number(req.params.id);
    const timeNow = new Date();
    const modifiliedMessage: Message[] = [];
    // Get the union type of keys 

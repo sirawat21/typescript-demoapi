@@ -1,7 +1,7 @@
 import * as phantom from 'phantom';
 
 /* Main */
-const main = (async () => {
+(async function main() {
   // Mock //
   const mockCreateData = [
     {
@@ -22,28 +22,39 @@ const main = (async () => {
     text: 'My program need to test.'
   }
   // Testing //
-  /* POST */ console.log(`${'-'.repeat(30)} POST`);
-  mockCreateData.map( async (message, key) => {
-    const resultRequestPost = await requestPost('/message', message);
-    console.log(`[${key}] ----->`);
-    console.log(resultRequestPost);
-  });
-
-  /* PUT */ console.log(`${'-'.repeat(30)} PUT`);
-  const resultRequestPut = await requestPut('/message', mockUpdateData, '1');
-  console.log(resultRequestPut);
-
-  /* DELETE */ console.log(`${'-'.repeat(30)} DELETE`);
-  const resultRequestDelete = await requestDelete('/message', '1');
-  console.log(resultRequestDelete);
-
-  /* GET */ console.log(`${'-'.repeat(30)} GET`);
-  const resultRequestGet = await requestGet('/message');
-  console.log(resultRequestGet);
-
-  /* GET ID */ console.log(`${'-'.repeat(30)} GET ID`);
-  let resultRequestGetById = await requestGetById('/message', '1');
-  console.log(resultRequestGetById);
+  /* POST */
+  await(async function () {
+    console.log(`${'-'.repeat(30)} POST`);
+    mockCreateData.map(async (message, key) => {
+      const resultRequestPost = await requestPost('/message', message);
+      console.log(`[${key}] ----->`);
+      console.log(resultRequestPost);
+    });
+  })();
+  /* PUT */
+  await(async function () {
+    console.log(`${'-'.repeat(30)} PUT`);
+    const resultRequestPut = await requestPut('/message', mockUpdateData, '2');
+    console.log(resultRequestPut);
+  })();
+  /* DELETE */
+  await(async function () {
+    console.log(`${'-'.repeat(30)} DELETE`);
+    const resultRequestDelete = await requestDelete('/message', '1');
+    console.log(resultRequestDelete);
+  })();
+  /* GET */
+  await(async function () {
+    console.log(`${'-'.repeat(30)} GET`);
+    const resultRequestGet = await requestGet('/message');
+    console.log(resultRequestGet);
+  })();
+  /* GET ID */
+  await(async function () {
+    console.log(`${'-'.repeat(30)} GET ID`);
+    let resultRequestGetById = await requestGetById('/message', '1');
+    console.log(resultRequestGetById);
+  })();
 
 })();
 
@@ -86,6 +97,10 @@ async function requestPost(path: string, data: Object, param: string = ''): Prom
   // Set operation
   const options: phantom.IOpenWebPageSettings = {
     operation: 'POST',
+    encoding: 'utf8',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     data: JSON.stringify(data)
   }
   // Set up request
@@ -109,6 +124,10 @@ async function requestPut(path: string, data: Object, param: string = ''): Promi
   // Set operation
   const options: phantom.IOpenWebPageSettings = {
     operation: 'PUT',
+    encoding: 'utf8',
+    headers: {
+      'Content-Type': 'application/json'
+    },
     data: JSON.stringify(data)
   }
   // Set up request
