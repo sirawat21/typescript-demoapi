@@ -1,12 +1,11 @@
-# Simple REST API with Typescript
-[![Build](https://github.com/sirawat21/typescript-demoapi/actions/workflows/github-actions-build.yml/badge.svg?branch=master)](https://github.com/sirawat21/typescript-demoapi/actions/workflows/github-actions-build.yml)
+# Simple REST API with Typescript, Phantom
 ## Description
-Demostrating REST API written by Typescript code. The APIs are mainly on ExpressJS.
+Demostrating REST API written by Typescript code. The APIs are mainly on ExpressJS. Also with PhantomJS for a client app.
 ## Setup Commands
 Dependency
 ```
-npm install typescript ts-node@10.9.1 express nodemon
-npm install --save @types/express
+npm install typescript ts-node@10.9.1 express nodemon phantom
+npm install @types/express @types/phantom
 ```
 Compile & Execute
 ```
