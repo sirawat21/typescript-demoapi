@@ -54,3 +54,4 @@ Simple Templates
 - Typescript CLI [sorce](https://www.typescriptlang.org/docs/handbook/compiler-options.html#compiler-options)
 - Typescript on NPM [sorce](https://www.npmjs.com/package/typescript)
 - TS ExpressJS [sorce](https://www.npmjs.com/package/@types/express)
+- Phantom [sorce](https://phantomjs.org/api/webpage/method/open-url.html)

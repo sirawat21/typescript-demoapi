@@ -4,8 +4,8 @@ const port = 3030;
 const path = 'api'
 const baseUrl = `http://localhost:${port}/${path}`;
 
-// [GET]
-async function sendGetRequest(): Promise<void> {
+// [GET ALL]
+async function sendGetRequest(): Promise<string> {
   const instance = await phantom.create();
   const page = await instance.createPage();
   const status = await page.open(`${baseUrl}/message`);
@@ -15,23 +15,46 @@ async function sendGetRequest(): Promise<void> {
   console.log(content);
 
   await instance.exit();
+  return JSON.stringify(content);
+}
+
+// [GET ID]
+async function sendGetRequestWithId(id: string): Promise<string> {
+  const instance = await phantom.create();
+  const page = await instance.createPage();
+  const status = await page.open(`${baseUrl}/message/${id}`);
+  console.log(status);
+
+  const content = await page.property('content');
+  console.log(content);
+
+  await instance.exit();
+  return JSON.stringify(content);
 }
 
 // [POST]
 async function sendPostRequest(): Promise<void> {
   const instance = await phantom.create();
   const page = await instance.createPage();
-  await page.on('onResourceRequested', function(requestData) {
+  await page.on('onResourceRequested', function (requestData) {
     console.info('Requesting', requestData.url);
   });
 
+  // sset ttp operation & send data
   const data = {
-    name: 'John Doe',
-    email: 'john.doe@example.com'
+    user: 'John Doe',
+    text: 'john.doe@example.com'
   };
+  const options: phantom.IOpenWebPageSettings = {
+    operation: 'POST',
+    data: JSON.stringify(data)
+  }
 
-  const status = await page.open(baseUrl + '/message', 'POST', JSON.stringify(data));
+  const method: 'POST' = 'POST';
+  const status = await page.open(`${baseUrl}/message`, options);
   console.log(status);
+
+  await page.setContent(baseUrl + '/message', JSON.stringify(data)); // set send var
 
   const content = await page.property('content');
   console.log(content);
@@ -40,20 +63,27 @@ async function sendPostRequest(): Promise<void> {
 }
 
 // [PUT]
-async function sendPutRequest(): Promise<void> {
+async function sendPutRequest(id: string): Promise<void> {
   const instance = await phantom.create();
   const page = await instance.createPage();
-  await page.on('onResourceRequested', function(requestData) {
+  await page.on('onResourceRequested', function (requestData) {
     console.info('Requesting', requestData.url);
   });
 
+  // set ttp operation & send data
   const data = {
-    name: 'Jane Doe',
-    email: 'jane.doe@example.com'
+    user: 'John Doe',
+    text: 'john.doe@example.com'
   };
+  const options: phantom.IOpenWebPageSettings = {
+    operation: 'PUT',
+    data: JSON.stringify(data)
+  }
 
-  const status = await page.open(`${baseUrl}/message`, 'PUT', JSON.stringify(data));
+  const status = await page.open(`${baseUrl}/message/${id}`, options);
   console.log(status);
+
+  await page.setContent(baseUrl + '/message', JSON.stringify(data)); // set send var
 
   const content = await page.property('content');
   console.log(content);
@@ -62,14 +92,19 @@ async function sendPutRequest(): Promise<void> {
 }
 
 // [DELETE]
-async function sendDeleteRequest(): Promise<void> {
+async function sendDeleteRequest(id: string): Promise<void> {
   const instance = await phantom.create();
   const page = await instance.createPage();
-  await page.on('onResourceRequested', function(requestData) {
+  await page.on('onResourceRequested', function (requestData) {
     console.info('Requesting', requestData.url);
   });
 
-  const status = await page.open(`${baseUrl}/message/1`, 'DELETE');
+  // sset ttp operation & send data
+  const options: phantom.IOpenWebPageSettings = {
+    operation: 'DELETE'
+  }
+
+  const status = await page.open(`${baseUrl}/message/${id}`, options);
   console.log(status);
 
   const content = await page.property('content');
