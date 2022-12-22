@@ -27,12 +27,12 @@ Generating initial file
 ```
 tsc --init
 ```
-Simple Templates 
+Typescript Project Configuration
 ```
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es2017",
+    "module": "node16",
     "moduleResolution": "node",
     "rootDir": "src",
     "outDir": "dist",
