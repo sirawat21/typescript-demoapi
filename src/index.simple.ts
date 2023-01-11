@@ -1,3 +1,6 @@
+/*
+ Simple example API build with all in one file
+*/
 import express, { Request, Response } from 'express';
 
 /* -------------------- [*] API Config [*] -------------------- */
